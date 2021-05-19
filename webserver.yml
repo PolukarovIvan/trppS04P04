@@ -5,4 +5,11 @@
   tasks:
   - name: latest nginx version installed
     apt:
-    name: nginx-light
+      name: nginx-light
+      state: latest
+      update_cache: true
+  - name: nginx enabled and running
+    service:
+      name: nginx
+      enabled: true
+      state: started
