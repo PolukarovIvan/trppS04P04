@@ -7,15 +7,14 @@
     copy:
       src: web-8080.conf
       dest: /etc/nginx/sites-enabled/
-      notify:
-        - reload_nginx
     when: has_8080
 
     notify:
-    - reload_nginx
+      - reload_nginx
 
   handlers:
-  - name: reload_nginx
-    service:
-      name: nginx
-      state: reloaded
+    - name: reload_nginx
+      service:
+        name: nginx
+        state: reloaded
+
